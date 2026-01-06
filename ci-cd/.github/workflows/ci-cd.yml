@@ -3,10 +3,10 @@ name: Next.js CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - learn-CI-CD
   pull_request:
     branches:
-      - main
+      - learn-CI-CD
 
 jobs:
   ci:
