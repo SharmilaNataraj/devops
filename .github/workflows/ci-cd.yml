@@ -22,21 +22,25 @@ jobs:
         with:
           node-version: 18
           cache: npm
+          cache-dependency-path: ci-cd/package-lock.json
 
       - name: Install dependencies
         run: npm ci
+        working-directory: ci-cd
 
       - name: Run lint
         run: npm run lint
+        working-directory: ci-cd
 
       - name: Build application
         run: npm run build
+        working-directory: ci-cd
 
   cd:
     name: Continuous Deployment
     runs-on: ubuntu-latest
     needs: ci
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/learn-CI-CD'
 
     steps:
       - name: Deploy
